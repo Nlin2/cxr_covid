@@ -16,8 +16,11 @@ import datasets.padchestdataset
 PADCHEST_CORRUPTED = set(datasets.padchestdataset.CORRUPTED)
 
 def is_image(path):
+    """
+    Checks if filepath is an image
+    """
     lower = path.lower()
-    if lower.startswith('.') or lower.endswith('fake.jpg'):
+    if lower.startswith('.') or lower.endswith('fake.jpg'): # no hidden files, no .*fake.jpg
         return False
     if lower.endswith('.jpg') or lower.endswith('png'):
         return True
